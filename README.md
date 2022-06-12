@@ -1,3 +1,6 @@
+## URL AWS 
+http://flaskchulanlpbpmnv1-env.eba-hiwuhfgp.us-east-2.elasticbeanstalk.com/
+
 ## Install Python
 version | detail | reference
 --- | --- | ---
