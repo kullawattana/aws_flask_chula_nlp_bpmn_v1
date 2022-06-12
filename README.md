@@ -27,8 +27,8 @@ pip install requirement | $ pip3 install -r requirements.txt
 - $ pip install -r requirement.txt
 
 ## Flask Run
-$ export FLASK_APP="application.py"
-$ flask run
+- $ export FLASK_APP="application.py"
+- $ flask run
 
 ## Git 
 detail | command
