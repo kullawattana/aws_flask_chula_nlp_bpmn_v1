@@ -123,3 +123,7 @@ https://us-east-2.console.aws.amazon.com/elasticbeanstalk/home?region=us-east-2#
 
 Other have issue deploy 
 https://stackoverflow.com/questions/53683358/flask-app-no-module-named-flask-error-in-elasticbeanstalk-after-confirming-flask
+
+![img](https://github.com/kullawattana/aws_flask_chula_nlp_bpmn_v1/blob/main/screenshot/code_pipeline_cicd.png | width=500)
+
+![img](https://github.com/kullawattana/aws_flask_chula_nlp_bpmn_v1/blob/main/screenshot/deployment.png | width=500)
