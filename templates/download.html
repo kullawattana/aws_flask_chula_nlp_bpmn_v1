@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <title>Download result file</title>
+</head>
+
+<body>
+    <div class="container">
+        <section class="vh-100 gradient-custom">
+            <div class="text-center justify-content-between py-4 px-4 px-xl-5 bg-dark">
+                <div class="text-white mb-2 mb-md-0">
+                    <p><img src="{{url_for('static', filename='img/chula_icon.png')}}" style="width:100px;height:100px;"></p>
+                    <p>An Automated Generation of BPMN Models</p>
+                    <p>from User Requirements in Natural Language</p>
+                </div>
+            </div>
+            <div class="container-fluid h-custom py-4">
+                <div class="h-100">
+                    <div class="row d-flex justify-content-center align-items-center h-100">
+                        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                            <div class="card" style="border-radius: 15px;">
+                                <div class="card-body p-5">
+                                    <div style="text-align:center;">
+                                        <img src="{{url_for('static', filename='img/success_icon.png')}}" style="width:100px;height:100px;">
+                                    </div>
+                                    <h2 class="text-uppercase text-center mb-5">Download result file</h2>
+                                    <form method=post>
+                                        <div style="text-align:center;">
+                                            <div class="form-outline mb-4">
+                                                <input type="submit" name="Download Result File" value="Download BPMN File">
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <form action="{{url_for('show_xml')}}">
+                                        <div style="text-align:center;">
+                                            <div class="form-outline mb-4">
+                                                <img src="{{url_for('static', filename='img/show_xml_icon.webp')}}" style="width:40px;height:40px;">
+                                                <button type=submit class="btn btn-primary">Show XML</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div style="text-align:center;">
+                                        <a href="{{url_for('upload_file')}}">Back to Upload File</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid h-custom py-4">
+                <div class="h-100">
+                    <div class="row d-flex justify-content-center align-items-center h-100">
+                        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                            <div class="card" style="border-radius: 15px;">
+                                <div class="card-body p-5">
+                                    <h2 class="text-uppercase text-center mb-5">Result Flow</h2>
+                                    <pre>{{ flow }}</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid h-custom py-4">
+                <div class="h-100">
+                    <div class="row d-flex justify-content-center align-items-center h-100">
+                        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                            <div class="card" style="border-radius: 15px;">
+                                <div class="card-body p-5">
+                                    <h2 class="text-uppercase text-center mb-5">Result Lane</h2>
+                                    <pre>{{ lane }}</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body p-5">
+                <h2 class="text-uppercase text-center mb-5">Result SVO</h2>
+                <pre>{{ svo }}</pre>
+            </div>
+            <div style="text-align:center;">
+                <h2>Instructions:</h2> 
+                <p>You can preview .bpmn file by browse icon, select file from your computer and you can save BPMN file with .svg with BPMN.io.</p>
+                <iframe src="https://demo.bpmn.io/" height="600" width="1024" title="Iframe"></iframe>
+            </div>
+            <div class="d-flex flex-column flex-md-row justify-content-between py-4 px-4 px-xl-5 bg-dark">
+                <div class="text-white mb-3 mb-md-0">
+                  <p>Powered by Faculty of Engineering, Chulalongkorn University</p>
+                  <p>Copyright © 2022. All rights reserved.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
