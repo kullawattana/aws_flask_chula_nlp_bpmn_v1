@@ -37,14 +37,14 @@ Push | $ git push origin main
 ## AWS Elastic Beanstalk
 step | detail
 --- | ---
-1 login : https://aws.amazon.com/
-2 elastic beanstalk : https://us-east-2.console.aws.amazon.com/elasticbeanstalk/home?region=us-east-2#/environments
-3 Create new environtment : https://us-east-2.console.aws.amazon.com/elasticbeanstalk/home?region=us-east-2#/newEnvironment
-- | - Create application name : flask-chula-nlp-bpmn-v1
-- | - Environment name : Flaskchulanlpbpmnv1-env
-- | - Platform : python 3.7
-- | - Create sample application
-- | - URL : Flaskchulanlpbpmnv1-env.eba-hiwuhfgp.us-east-2.elasticbeanstalk.com
+1 | login : https://aws.amazon.com/
+2 | elastic beanstalk : https://us-east-2.console.aws.amazon.com/elasticbeanstalk/home?region=us-east-2#/environments
+3 | Create new environtment : https://us-east-2.console.aws.amazon.com/elasticbeanstalk/home?region=us-east-2#/newEnvironment
+4 | Create application name : flask-chula-nlp-bpmn-v1
+5 | Environment name : Flaskchulanlpbpmnv1-env
+6 | Platform : python 3.7
+7 | Create sample application
+8 | URL : Flaskchulanlpbpmnv1-env.eba-hiwuhfgp.us-east-2.elasticbeanstalk.com
 
 ## Code Commit CI/CD : goto code pipeline
 step | detail
@@ -107,13 +107,13 @@ step | detail
 3 | Press "next" button
 4 | Add build stage : skip build state
 5 | Add deploy stage : 
-- | Deploy Provider : AWS Elastic Beanstalk
-- | Region : US East (Ohio)
-6 | Application name : flask-chula-nlp-bpmn-v1
-7 | Environtment name : flaskchulanlpbpmnv1-env
-8 | Press next
-9 | create pipeline
-10 | Deploy Success
+6 | Deploy Provider : AWS Elastic Beanstalk
+7 | Region : US East (Ohio)
+8 | Application name : flask-chula-nlp-bpmn-v1
+9 | Environtment name : flaskchulanlpbpmnv1-env
+10 | Press next
+11 | create pipeline
+12 | Deploy Success
 
 back to AWS elastic beanstalk
 https://us-east-2.console.aws.amazon.com/elasticbeanstalk/home?region=us-east-2#/application/overview?applicationName=flask-example
