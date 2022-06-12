@@ -49,8 +49,8 @@ step | detail
 ## Code Commit CI/CD : goto code pipeline
 step | detail
 --- | ---
-1 reate pipeline name | flask-chula-nlp-bpmn-v1
-2 Role name | AWSCodePipelineServiceRole-us-east-2-flask-chula-nlp-bpmn-v1
+1 | Create pipeline name : flask-chula-nlp-bpmn-v1
+2 | Role name : AWSCodePipelineServiceRole-us-east-2-flask-chula-nlp-bpmn-v1
 3 | Select Github (Version 2)
 4 | Select connect with github
 5 | Authorize Github with AWS
@@ -75,7 +75,7 @@ requirement.txt
 - copy all and put on this project to ignore deploy
 - Ref : https://github.com/github/gitignore/blob/main/Python.gitignore
 
-## back to terminal on this project (I will not found .venv, __pycache__/)
+## back to terminal on this project
 - $ git status
 
 ```
