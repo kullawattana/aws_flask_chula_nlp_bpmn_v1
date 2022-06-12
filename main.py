@@ -46,7 +46,7 @@ from neural_coref import NeuralCoref
 #scenario 14 (is_show_gateway = False (Worked), is_show_gateway = True (not work))
 #sentence = "In the treasury minister’s office, once a ministerial inquiry has been received, it is first registered into the system. Then the inquiry is investigated so that a ministerial response can be prepared. The finalization of a response includes the preparation of the response itself by the cabinet officer and the review of the response by the principal registrar. If the registrar does not approve the response, the latter needs to be prepared again by the cabinet officer for review. The process finishes only once the response has been approved."
 
-#Demo
+#Demo test
 sentence = "The Vacation Request Process starts when an employee of the organization submits a vacation request. Once the requirement is registered, the request is received by the immediate supervisor; the supervisor must approve or reject the request. If the request is rejected the application is returned to the applicant/employee who can review the rejection reasons. If the request is approved a notification is generated to the Human Resources representative, who must complete the respective administrative procedures."
 
 neuralCoref = NeuralCoref(sentence)
