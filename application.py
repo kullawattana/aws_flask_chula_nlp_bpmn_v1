@@ -7,10 +7,10 @@ from neural_coref import NeuralCoref
 
 ALLOWED_EXTENSIONS = {'txt'}
 
-app = Flask(__name__)
-app.secret_key = os.urandom(24)
-app.config['UPLOAD_FOLDER'] = 'data'
-app.config['MAX_CONTENT_LENGTH'] = 4 * 1024 * 1024  # 4MB max-limit.
+application = Flask(__name__)
+application.secret_key = os.urandom(24)
+application.config['UPLOAD_FOLDER'] = 'data'
+application.config['MAX_CONTENT_LENGTH'] = 4 * 1024 * 1024  # 4MB max-limit.
 
 flow = []
 lane = []
@@ -21,11 +21,11 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
 
 # home page
-@app.route('/', methods=['POST', 'GET'])
+@application.route('/', methods=['POST', 'GET'])
 def upload_file():
     if request.method == 'POST':
-        os.remove(os.path.join(app.config['UPLOAD_FOLDER'], "result_bpmn_process_from_nlp.bpmn"))
-        os.remove(os.path.join(app.config['UPLOAD_FOLDER'], "result_bpmn_process_from_nlp.xml"))
+        os.remove(os.path.join(application.config['UPLOAD_FOLDER'], "result_bpmn_process_from_nlp.bpmn"))
+        os.remove(os.path.join(application.config['UPLOAD_FOLDER'], "result_bpmn_process_from_nlp.xml"))
 
         # check if the post request has the file part
         if 'file' not in request.files:
@@ -59,18 +59,18 @@ def upload_file():
         # if the user submits a file with the correct format
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            os.remove(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            file.save(os.path.join(application.config['UPLOAD_FOLDER'], filename))
+            os.remove(os.path.join(application.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('download_file'))
 
     return render_template('index.html')
 
 # download page
-@app.route('/download', methods=['POST', 'GET'])
+@application.route('/download', methods=['POST', 'GET'])
 def download_file():
     if request.method == 'POST':
         if request.form['Download Result File'] == 'Download BPMN File':
-            return send_from_directory(app.config['UPLOAD_FOLDER'], 'result_bpmn_process_from_nlp.bpmn')
+            return send_from_directory(application.config['UPLOAD_FOLDER'], 'result_bpmn_process_from_nlp.bpmn')
     
     json_flow = json.dumps(flow[0], sort_keys = False, indent = 2)
     json_lane = json.dumps(lane[0], sort_keys = False, indent = 2)
@@ -78,10 +78,10 @@ def download_file():
     return render_template('download.html', flow=json_flow, lane=json_lane, svo=json_svo)  
 
 # show xml
-@app.route('/showxml', methods=['POST', 'GET'])
+@application.route('/showxml', methods=['POST', 'GET'])
 def show_xml():
     if request.method == 'GET':
-        return send_from_directory(app.config['UPLOAD_FOLDER'], 'result_bpmn_process_from_nlp.xml')
+        return send_from_directory(application.config['UPLOAD_FOLDER'], 'result_bpmn_process_from_nlp.xml')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    application.run(debug=True)
