@@ -1,9 +1,9 @@
-import spacy
 import uuid
 from extract.merge_phrases import Phrases
 from models.json_model import JsonDictionary
 from itertools import combinations 
 from constants.word import SIGNAL_WORDS, ANTONYM_WORDS
+import spacy
 
 nlp = spacy.load("en_core_web_sm")
 
