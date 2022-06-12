@@ -9,7 +9,7 @@ class NeuralCoref():
         self.sentence = sentence
     
     def get_sentence(self):
-        nlp = spacy.load('en')
+        nlp = spacy.load('en_core_web_sm')
         coref = neuralcoref.NeuralCoref(nlp.vocab)
         nlp.add_pipe(coref, name='neuralcoref')
         doc = nlp(self.sentence)
