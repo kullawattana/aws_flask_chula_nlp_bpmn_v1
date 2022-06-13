@@ -71,7 +71,7 @@ step | detail
 .venv/
 __pycache__/
 application.py
-requirement.txt
+requirements.txt
 ```
 
 ## create .gitignore file 
@@ -84,7 +84,7 @@ requirement.txt
 ```
 .gitignore
 application.py
-requirement.txt
+requirements.txt
 ```
 
 ## Commit to Git
@@ -99,7 +99,7 @@ step | detail
 3 files changed, 176 insertions(+)
 create mode 100644 .gitignore
 create mode 100644 application.py
-create mode 100644 requirement.txt
+create mode 100644 requirements.txt
 ```
 
 ## Step by Step of AWS pipeline
