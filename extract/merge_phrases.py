@@ -211,10 +211,8 @@ class Phrases():
                     for obj in objs:
                         objNegated = self.is_negated(obj) 
                         if self.get_verb_suffix_with_s_and_es(verb) == True: 
-                            print("1xxxx", _subjects)
                             self.get_SVOS_is_active_v2(self.sequence, _subjects, verb, v2, verbNegated, objNegated, obj, _event_label, signal_word)        
                         else:
-                            print("2xxxx", _subjects)
                             self.get_SVOS_is_passive_v2(self.sequence, _subjects, verb, v2, verbNegated, objNegated, obj, _event_label, signal_word)
             else:    
                 verb, objs = o.main_get_all_objs(verb, is_pas)
@@ -234,17 +232,13 @@ class Phrases():
                         for obj in objs:
                             objNegated = self.is_negated(obj) 
                             if self.get_verb_suffix_with_s_and_es(verb) == True: 
-                                print("3xxxx", _subjects)
                                 self.get_SVOS_is_active_v(self.sequence, _subjects, verb, verbNegated, objNegated, obj, _event_label, signal_word)
                             else:
-                                print("4xxxx", _subjects)
                                 self.get_SVOS_is_passive_v(self.sequence, _subjects, verb, verbNegated, objNegated, obj, _event_label, signal_word)
                     else:
                         if self.get_verb_suffix_with_s_and_es(verb) == True:
-                            print("5xxxx")    
                             self.svos.append((self.sequence, "-", "!" + verb.lower_ if verbNegated else verb.lower_, sub, _event_label, "isActive", signal_word))
-                        else:
-                            print("6xxxx")    
+                        else:  
                             self.svos.append((self.sequence, "-", "!" + verb.lower_ if verbNegated else verb.lower_, sub, _event_label, "isPassive", signal_word))         
         return self.svos
 

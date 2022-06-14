@@ -1,6 +1,3 @@
-# install : python -m spacy download en
-# Load your usual SpaCy model (one of SpaCy English models)
-
 import spacy
 import neuralcoref
 

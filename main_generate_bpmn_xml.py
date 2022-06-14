@@ -5,7 +5,6 @@ from bpmn_lane import BPMNLane
 from xml.etree import ElementTree
 import xml.etree.ElementTree as gfg
 from main_nlp_generate_bpmn import NLPGenerateBPMN
-
 import json
 
 BPMNDI_ELEMENT_DIAGRAM_ID = "BPMNDiagram_1"
@@ -64,13 +63,8 @@ class BPMN():
         print("================================Generate NLP...================================")
         nlpGenerate = NLPGenerateBPMN(self.text)
         list_flow, json_list_lane, list_lane, list_svo_to_generate_bpmn_in_out_diagram = nlpGenerate.prepare_list_flow(is_show_gateway)
-        #print("list_flow: ", list_flow)
-        #print("json_list_lane: ", json_list_lane)
-        #print("list_lane: ", list_lane)
-        #print("list_svo_to_generate_bpmn_in_out_diagram: ", list_svo_to_generate_bpmn_in_out_diagram)
 
-
-        #Case 8 =====================================================
+        #=====================================================
         # a1 = { 
         #     "1| A small company|Lane_bd0972a":[
         #         "StartEvent_a0aecaf",
