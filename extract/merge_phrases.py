@@ -53,7 +53,7 @@ class Phrases():
                 attrs = {"tag": tag, "lemma": lemma, "ent_type": ent_type}
                 retokenizer.merge(span, attrs=attrs)
         return self.doc   
-           
+         
     def is_passive(self, tokens):
         #=========================================
         #Subject <- VERB -> dobj
@@ -169,7 +169,18 @@ class Phrases():
         #================================================================================ 
         self.svos.append((i, _subjects, "!" + v.lower_ if verbNegated or objNegated else v.lower_, obj, event_label, "isPassive", signal_word_with_verb))
         self.svos.append((i, _subjects, "!" + v2.lower_ if verbNegated or objNegated else v2.lower_, obj, event_label, "isPassive", signal_word_with_verb))                       
-        
+
+    def get_signal_word_show_gateway(self, is_show_gateway, verb):
+        signal_word = ""
+        if is_show_gateway == True:
+            signal_word, _event_label = self.get_signal_word_with_verb(verb)      #8 
+            if len(_event_label) == 0:
+                signal_word = "-"
+                _event_label = "VO_"
+        else:
+            _event_label = "VO_"
+        return signal_word, _event_label
+
     def get_svo(self, sentence, is_show_gateway):
         doc = self.nlp(sentence)
         doc = self.merge_phrases()
@@ -196,36 +207,18 @@ class Phrases():
             isConjVerb, conjV = v.right_of_verb_is_conj_verb(verb)      #6
             if isConjVerb:
                 v2, objs = o.main_get_all_objs(conjV, is_pas)           #7 
-                
-                signal_word = ""
-                if is_show_gateway == True:
-                    signal_word, _event_label = self.get_signal_word_with_verb(verb)      #8 
-                    if len(_event_label) == 0:
-                        signal_word = "-"
-                        _event_label = "VO_"
-                else:
-                    _event_label = "VO_"
-
+                signal_word, _event_label = self.get_signal_word_show_gateway(is_show_gateway, verb)
                 for sub in subs:
                     _subjects = str(sub).replace("an ","")
                     for obj in objs:
                         objNegated = self.is_negated(obj) 
-                        if self.get_verb_suffix_with_s_and_es(verb) == True: 
+                        if self.get_verb_suffix_with_s_and_es(verb) == True:
                             self.get_SVOS_is_active_v2(self.sequence, _subjects, verb, v2, verbNegated, objNegated, obj, _event_label, signal_word)        
                         else:
                             self.get_SVOS_is_passive_v2(self.sequence, _subjects, verb, v2, verbNegated, objNegated, obj, _event_label, signal_word)
             else:    
-                verb, objs = o.main_get_all_objs(verb, is_pas)
-                
-                signal_word = ""
-                if is_show_gateway == True:
-                    signal_word, _event_label = self.get_signal_word_with_verb(verb)      #8 
-                    if len(_event_label) == 0:
-                        signal_word = "-"
-                        _event_label = "VO_"
-                else:
-                    _event_label = "VO_"
-
+                verb, objs = o.main_get_all_objs(verb, is_pas)                
+                signal_word, _event_label = self.get_signal_word_show_gateway(is_show_gateway, verb)
                 for sub in subs:
                     _subjects = str(sub).replace("an ","")
                     if len(objs) > 0:
