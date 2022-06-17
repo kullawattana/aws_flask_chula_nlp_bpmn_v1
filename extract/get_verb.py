@@ -48,7 +48,6 @@ class GetVerb():
         #====================================================
         advcl = [tok for tok in v.rights if tok.dep_ in {"advcl"}]
         if len(advcl) > 0:
-            print("relation of verb on right:",advcl)
             return advcl
 
     def get_advcl_left(self, v):
@@ -57,5 +56,4 @@ class GetVerb():
         #====================================================
         advcl = [tok for tok in v.lefts if tok.dep_ in {"advcl"}]
         if len(advcl) > 0:
-            print("relation of verb on left:",advcl)  
             return advcl       

@@ -312,7 +312,6 @@ class NLPGenerateBPMN():
         self.select_group_of_hashing_word(self.signal_word)
         if len(self.signal_word_list) == 0 and len(self.gateway_tag) > 0:
             if str(self.signal_word) in ANTONYM_WORDS:
-                print("33 - self.signal_word OTHERWISE :", self.signal_word)
                 self.duplicateActivity(vo)
                 #tuple pairs Gxs VO1 VO1 => [("Gxs|VO1"),("Gxs|VO2")]
                 open_join = self.tuplePairsJoinGateway()
@@ -324,7 +323,6 @@ class NLPGenerateBPMN():
             # 3 START GATEWAY Rx, R+ Gxs G+s Gos
             if len(self.signal_word) > 0:
                 if str(self.signal_word) in SIGNAL_WORDS:
-                    print("22 - self.signal_word IF :", self.signal_word)
                     event_id = self.startGateway()
                     self.interruptFlowAdjustListSplitGateway()
                     self.start_open_split_gateway(event_id)

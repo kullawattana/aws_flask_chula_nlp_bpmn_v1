@@ -46,7 +46,6 @@ class GetSubject():
         matcher = GetSubjectMatcher()
         agent = [tok for tok in v.rights if tok.dep_ in {"agent"}]
         if len(agent) > 0:
-            print("agent:", agent)
             if len(agent) > 0:
                 matches_subject, span_subject = matcher.get_subject_matcher()    
                 if str(span_subject).find(str(agent[0])) != -1:

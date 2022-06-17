@@ -27,8 +27,6 @@ class GetSubjectMatcher():
         #==================================
         for tok in v.rights:
             if tok.dep_ not in PUNCT:
-                print("tok.dep_:",tok.dep_, tok.text)  
                 if tok.dep_ in {"prep"}:
-                    matches_text, span_text = self.get_subject_matcher()
-                    print("Found! prep :", matches_text, span_text)        
+                    matches_text, span_text = self.get_subject_matcher()    
         return matches_text, span_text             
