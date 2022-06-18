@@ -24,6 +24,9 @@ def allowed_file(filename):
 @application.route('/', methods=['POST', 'GET'])
 def upload_file():
     if request.method == 'POST':
+        flow.clear()
+        lane.clear()
+        svo.clear()
         os.remove(os.path.join(application.config['UPLOAD_FOLDER'], "result_bpmn_process_from_nlp.bpmn"))
         os.remove(os.path.join(application.config['UPLOAD_FOLDER'], "result_bpmn_process_from_nlp.xml"))
 
